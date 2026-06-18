@@ -24,7 +24,7 @@ jobs:
 
       - name: Start Prism mock server
         run: |
-          nohup npm run mock:iot > prism.log 2>&1 &
+          nohup npm run mock:camera > prism.log 2>&1 &
           sleep 5
           cat prism.log
 

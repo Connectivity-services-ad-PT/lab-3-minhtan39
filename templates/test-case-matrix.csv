@@ -1,6 +1,7 @@
 ID,Folder,Endpoint,Method,Scenario,Input file/body,Expected status,Expected response check,Type,Pass/Fail,Evidence
 TC01,Functional,/health,GET,Service is alive,-,200,status=ok,functional,,
-TC02,Functional,/readings,POST,Create reading happy path,mock-data/sensor-reading-valid.json,201,"has reading_id, accepted=true",functional,,
-TC03,Negative,/readings,POST,Missing device_id,mock-data/sensor-reading-invalid-missing-device.json,400,Problem Details,negative,,
-TC04,Auth,/readings,POST,Missing token,mock-data/sensor-reading-valid.json,401,Problem Details,auth,,
-TC05,Boundary,/readings,POST,High temperature boundary,mock-data/sensor-reading-boundary.json,201/400,documented behavior,boundary,,
+TC02,Functional,/api/v1/frames,POST,Upload valid camera frame,mock-data/camera-frame-valid.json,201,"has frame_id, accepted=true",functional,,
+TC03,Negative,/api/v1/frames,POST,Invalid short image payload,mock-data/camera-frame-invalid-short-image.json,400/422,Problem Details,negative,,
+TC04,Auth,/api/v1/frames,POST,Missing token,mock-data/camera-frame-valid.json,401/403,Problem Details,auth,,
+TC05,Boundary,/api/v1/frames,POST,Motion score boundary 1.0,mock-data/camera-frame-boundary-motion.json,201,accepted high motion,boundary,,
+TC06,Consumer-side,/api/v1/frames/{frame_id}/analyze,POST,Vision/Analytics dependency behavior,created frame id,200/502/503,controlled dependency result,consumer-smoke,,
