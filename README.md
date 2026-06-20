@@ -10,6 +10,7 @@ Camera Stream receives camera frames, validates metadata, exposes frame history,
 
 ```text
 contracts/camera-stream.openapi.yaml
+docs/BUSINESS_ANALYSIS_CAMERA.md
 postman/collections/FIT4110_lab03_camera_stream.postman_collection.json
 postman/environments/FIT4110_lab03_mock.postman_environment.json
 postman/environments/FIT4110_lab03_local.postman_environment.json
@@ -21,6 +22,10 @@ reports/verification-summary.md
 ```
 
 The legacy classroom template names have been replaced in runnable scripts and submission artifacts.
+
+## Business Analysis
+
+`docs/BUSINESS_ANALYSIS_CAMERA.md` maps the 7-service business document to Camera Stream: detect motion, throttle calls, preprocess one snapshot, send `image_base64` plus request metadata to AI Vision, and produce a camera event for Analytics/Core.
 
 ## Commands
 

@@ -23,3 +23,4 @@
 
 - Camera Stream calls AI Vision at `POST /api/v1/detect`.
 - Camera Stream sends camera events to Analytics at `POST /api/v1/events`.
+- Business analysis lives in `docs/BUSINESS_ANALYSIS_CAMERA.md` and documents motion filtering, cooldown, base64 snapshot payload, Vision risk response, and Analytics/Core event handoff.
